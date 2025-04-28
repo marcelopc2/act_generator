@@ -7,7 +7,7 @@ import pandas as pd
 
 st.set_page_config(page_title="Director ACT Generator", page_icon="👮‍♂️", layout="wide")
 st.title("Director ACT Generator 👮‍♂️")
-st.write("Generador de actas para los directores de diplomados. Ingresa los IDs de los cursos en orden (c1, c2, c3, c4, c5) y has clic en el boton Obtener Datos.")
+st.info("ℹ️ Generador de actas para los directores de diplomados. Ingresa los IDs de los cursos en orden (c1, c2, c3, c4, c5) y has clic en el boton Obtener Datos. Selecciona y copia todas las columnas y en Excel usa CTRL + SHIFT + V para pegarlas con el formato correcto de la celda.")
 
 session = requests.Session()
 session.headers.update(HEADERS)
