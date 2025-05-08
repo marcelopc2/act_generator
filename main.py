@@ -191,7 +191,7 @@ if st.button("Obtener Datos", use_container_width=True):
         if reprobados == 1:
             row["Observaciones"] = "Puede recursar"
         elif reprobados >= 2:
-            row["Observaciones"] = "Perdido"
+            row["Observaciones"] = ""
         else:
             row["Observaciones"] = ""
 
