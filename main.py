@@ -189,7 +189,7 @@ if st.button("Obtener Datos", use_container_width=True):
             row["Estado"] = "Reprobado"
 
         if reprobados == 1:
-            row["Observaciones"] = "Puede recursar"
+            row["Observaciones"] = "Accede a remedial"
         elif reprobados >= 2:
             row["Observaciones"] = ""
         else:
