@@ -253,10 +253,12 @@ if st.button("Obtener datos!", use_container_width=True):
     df_export = df.copy()
     for col in NUM_COLS:
         df_export[col] = df[col].apply(parse_cell)
+    
+    code = courses_info[0].get('course_code').split('-')
 
     st.session_state["df"] = df
     st.session_state["df_export"] = df_export
-    st.session_state["filename"] = f"{account_name.get('name')}.xlsx"
+    st.session_state["filename"] = f"{account_name.get('name')}-{code}.xlsx"
     st.session_state["tareas_pendientes_all"] = tareas_pendientes_all
 
 
