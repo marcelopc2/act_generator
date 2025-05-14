@@ -10,9 +10,9 @@ from concurrent.futures import ThreadPoolExecutor
 import time
 
 # Configuración general
-st.set_page_config(page_title="Director ACT Generator", layout="wide", page_icon="👮‍♂️")
-st.title("Director ACT Generator 👮‍♂️")
-st.info("Ingresa los 5 IDs de cursos en orden. Se calcularán promedios, estado final y tareas pendientes.")
+st.set_page_config(page_title="Director ACT Generator", layout="wide", page_icon="🛰️")
+st.title("Diplomado Director ACT Generator 🛰️")
+st.info("Ingresa los 5 IDs de cursos en orden de dictación (c1, c2, c3, c4, c5). Se calcularán promedios, estado final y tareas pendientes.")
 
 session = requests.Session()
 session.headers.update(HEADERS)
