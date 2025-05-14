@@ -258,7 +258,7 @@ if st.button("Obtener datos!", use_container_width=True):
 
     st.session_state["df"] = df
     st.session_state["df_export"] = df_export
-    st.session_state["filename"] = f"{account_name.get('name')}-{code}.xlsx"
+    st.session_state["filename"] = f"{account_name.get('name')}-{code[1]}.xlsx"
     st.session_state["tareas_pendientes_all"] = tareas_pendientes_all
 
 
