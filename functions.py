@@ -71,8 +71,12 @@ def format_rut(rut_raw: str) -> str:
     Formatea un RUT chileno: 193745040 -> 19.374.504-0
     Si la entrada no cumple el patrón [cuerpo+dígito_verificador], lo devuelve sin cambios.
     """
+    if not isinstance(rut_raw, str) or not rut_raw:
+        return ""  # o podrías retornar rut_raw si prefieres mantener el valor original
+    
     # 1) Eliminar puntos y guiones existentes
     clean = re.sub(r"[.\-]", "", rut_raw).upper()
+    
     # 2) Validar: al menos 2 chars, cuerpo dígitos y DV dígito o K
     if re.fullmatch(r"\d{1,8}[0-9K]", clean):
         cuerpo, dv = clean[:-1], clean[-1]
@@ -81,5 +85,6 @@ def format_rut(rut_raw: str) -> str:
         grupos = [rev[i : i+3] for i in range(0, len(rev), 3)]
         cuerpo_fmt = ".".join(g[::-1] for g in grupos[::-1])
         return f"{cuerpo_fmt}-{dv}"
+    
     # 4) Si no es válido, devolver original
     return rut_raw

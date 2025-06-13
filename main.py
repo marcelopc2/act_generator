@@ -10,7 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 import time
 
 # Configuración general
-st.set_page_config(page_title="Director ACT Generator", layout="wide", page_icon="🛰️")
+st.set_page_config(page_title="Diplomado Director ACT Generator", layout="wide", page_icon="🛰️")
 st.title("Diplomado Director ACT Generator 🛰️")
 st.info("Ingresa los 5 IDs de cursos en orden de dictación (c1, c2, c3, c4, c5). Se calcularán promedios, estado final y tareas pendientes.")
 
@@ -142,7 +142,13 @@ if st.button("Obtener datos!", use_container_width=True):
     if len(firmas) != 1:
         st.error(f"❌ Cursos de diplomados distintos: {firmas}")
         st.stop()
-
+        
+    course_type = next(iter(firmas))
+    course_initial = course_type.split("-")
+    if course_initial[1][0] != "D":
+        st.error(f"❌ {firmas}: Los cursos no pertenecen a un Diplomado, usa la version correcta. Si crees que hay un error contacta a soport (instruccional2.die@uautonoma.cl)")
+        st.stop()
+        
     firma = firmas.pop()
     st.success(f"✅ Diplomado validado: {firma}")
     account_name = canvas_request(session, "get", f"/accounts/{cursos_basicos[0].get('account_id')}")
