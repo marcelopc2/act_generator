@@ -8,6 +8,7 @@ import io
 import math
 from concurrent.futures import ThreadPoolExecutor
 import time
+import os
 
 # Configuración general
 st.set_page_config(page_title="Diplomado Director ACT Generator", layout="wide", page_icon="🛰️")
@@ -227,10 +228,10 @@ if st.button("Obtener datos!", use_container_width=True):
             row["Estado"] = "Regularizar"
         elif row["Promedio"] == "Sin calcular":
             row["Estado"] = "Sin notas"
-        elif row["Promedio"] >= 4.0:
-            row["Estado"] = "Aprobado"
-        else:
+        elif reprobados > 0:
             row["Estado"] = "Reprobado"
+        else:
+            row["Estado"] = "Aprobado"
 
         row["Observaciones"] = "Accede a remedial" if reprobados == 1 else ""
         row["Email"] = info["email"]

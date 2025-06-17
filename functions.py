@@ -5,6 +5,7 @@ import unicodedata
 
 BASE_URL = config("URL")
 
+
 def canvas_request(session, method, endpoint, payload=None, paginated=False):
     """
     Realiza peticiones a la API de Canvas y maneja la paginación si es necesario.
