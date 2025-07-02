@@ -233,7 +233,12 @@ if st.button("Obtener datos!", use_container_width=True):
         else:
             row["Estado"] = "Aprobado"
 
-        row["Observaciones"] = "Accede a remedial" if reprobados == 1 else ""
+        if row["Estado"] == "Regularizar":
+            row["Observaciones"] = "Regularizar"
+        elif reprobados == 1:
+            row["Observaciones"] = "Accede a remedial"
+        else:
+            row["Observaciones"] = ""
         row["Email"] = info["email"]
         filas.append(row)
 
