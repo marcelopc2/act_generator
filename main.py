@@ -182,9 +182,14 @@ if st.button("Obtener datos!", use_container_width=True):
 
     filas = []
     for sis, info in alumnos.items():
+        # row = {
+        #     "Nombre": info["first"],
+        #     "Apellido": info["last"],
+        #     "RUT": format_rut(sis)
+        # }
+        nombre_completo = f"{info['first']} {info['last']}".strip()
         row = {
-            "Nombre": info["first"],
-            "Apellido": info["last"],
+            "Nombre Completo": nombre_completo,
             "RUT": format_rut(sis)
         }
         notas = []
